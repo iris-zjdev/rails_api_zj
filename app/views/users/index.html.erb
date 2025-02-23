@@ -1,0 +1,23 @@
+<h1>User List</h1>
+<form method="get" action="/">
+  <input type="text" name="name" placeholder="Search by name" value="<%= params[:name] %>">
+  <button type="submit">Search</button>
+</form>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Details</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <img src="<%= User.avatar_url(user) %>" width="50" height="50">
+      </td>
+      <td><%= user['name'] %></td>
+      <td><%= user['email'] %></td>
+      <td><%= link_to 'View Details', user_details_path(user['id']) %></td>
+    </tr>
+  <% end %>
+</table>
