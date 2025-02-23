@@ -57,5 +57,15 @@ test:
   database: rails_api_project_test
 
 production:
-  <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  primary:
+    adapter: postgresql
+    encoding: unicode
+    pool: 5
+    url: <%= ENV['DATABASE_URL'] %>
+
+  cable:
+    adapter: postgresql
+    encoding: unicode
+    pool: 5
+    url: <%= ENV['DATABASE_URL'] %>
+
