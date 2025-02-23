@@ -110,3 +110,5 @@ end
 
 # Windows-specific dependency
 gem "tzinfo-data", platforms: %i[ windows jruby ]
+
+gem "httparty"
